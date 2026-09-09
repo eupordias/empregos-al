@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMPREGOS AL – SETEQ | Governo do Estado de Alagoas</title>
+  <meta name="description" content="Plataforma oficial de intermediação de mão de obra, gestão de vagas, currículos e processos seletivos do Governo de Alagoas com Inteligência Artificial.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  
+  <!-- Estilos Customizados e Regras de Impressão -->
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <!-- Configurações Tailwind personalizadas -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            alagoas: {
+              blue: '#0d47a1',
+              darkblue: '#0a2540',
+              red: '#d32f2f',
+              gold: '#f59e0b'
+            },
+            tech: {
+              bg: '#0B1120',
+              surface: '#0F172A',
+              card: '#1E293B',
+              border: '#334155',
+              cyan: '#06B6D4',
+              cyanGlow: '#00F0FF',
+              accent: '#3B82F6'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white transition-colors duration-200">
+
+  <!-- Navbar Raiz (Contém Faixa Governamental Unificada & Menu Anexado) -->
+  <div id="navbar-root"></div>
+
+  <!-- Conteúdo Dinâmico Principal -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full" id="main-content">
+    <div class="flex items-center justify-center py-20 text-slate-400">
+      <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-900 mr-3"></div>
+      <span class="text-sm font-semibold">Carregando ecossistema digital SETEQ...</span>
+    </div>
+  </main>
+
+  <!-- Rodapé Institucional (Oculto na Impressão) -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-12 py-8 text-xs text-slate-500 dark:text-slate-400 no-print transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3 text-center sm:text-left">
+        <div class="w-8 h-8 rounded-lg bg-blue-900 text-white font-extrabold flex items-center justify-center text-xs shadow-sm">
+          AL
+        </div>
+        <div>
+          <p class="font-bold text-slate-800 dark:text-slate-200">Governo do Estado de Alagoas</p>
+          <p class="text-[11px]">SETEQ – Secretaria do Trabalho, Emprego e Qualificação</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 text-[11px]">
+        <span>SINE / IMO Nacional</span>
+        <span>•</span>
+        <span>Conformidade MTE</span>
+        <span>•</span>
+        <span>LGPD (Lei 13.709/18)</span>
+        <span>•</span>
+        <span class="text-cyan-600 dark:text-cyan-400 font-semibold">Match IA v2.1 Ativo</span>
+        <span>•</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-semibold">Mobile Multiplataforma</span>
+      </div>
+
+      <p class="text-[11px] text-slate-400">
+        © 2026 SETEQ Alagoas. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Contêiner do Simulador de Smartphone Mobile (iOS / Android) -->
+  <div id="mobile-simulator-modal" class="hidden"></div>
+
+  <!-- Contêiner de Notificações Toast -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
+
+  <!-- Contêiner de Janelas Modais -->
+  <div id="modal-container"></div>
+
+  <!-- Contêiner do Assistente Virtual com IA da SETEQ -->
+  <div id="ai-chat-root"></div>
+
+  <!-- Contêiner do Assistente de LIBRAS Oficial (Língua Brasileira de Sinais) -->
+  <div id="libras-root"></div>
+
+  <!-- Plugin Oficial VLibras (Governo Federal / Gov.br) -->
+  <div vw class="enabled no-print">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <!-- Bibliotecas de Mapas e Gráficos Interativos -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Módulos do Ecossistema SETEQ -->
+  <script src="./js/mock-data.js"></script>
+  <script src="./js/accessibility.js"></script>
+  <script src="./js/courses.js"></script>
+  <script src="./js/news.js"></script>
+  <script src="./js/support.js"></script>
+  <script src="./js/mobile-simulator.js"></script>
+  <script src="./js/ai-chat.js"></script>
+  <script src="./js/libras.js"></script>
+  <script src="./js/app.js"></script>
+  
+  <!-- Inicialização do VLibras Oficial (com fallback autônomo do libras.js) -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    try {
+      if (window.VLibras) {
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      }
+    } catch (e) {}
+  </script>
+</body>
+</html>

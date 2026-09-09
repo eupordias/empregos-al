@@ -1,0 +1,625 @@
+/* EMPREGOS AL – SETEQ (Governo de Alagoas) - Estilos Personalizados */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --al-blue-deep: #0a3d62;
+  --al-blue-primary: #1e3a8a;
+  --al-red-primary: #dc2626;
+  --al-gold: #f59e0b;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animações e Transições Suaves */
+.fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Hover Elevation */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+/* Drag & Drop Kanban Styles */
+.kanban-col {
+  min-height: 480px;
+  max-height: calc(100vh - 260px);
+  overflow-y: auto;
+}
+
+.kanban-card {
+  cursor: grab;
+  user-select: none;
+}
+.kanban-card:active {
+  cursor: grabbing;
+}
+.kanban-card.dragging {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+.kanban-col.drag-over {
+  background-color: #e0e7ff !important;
+  border-color: #6366f1 !important;
+}
+
+/* Badge Match IA Glow */
+.ai-badge-glow {
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
+}
+
+/* Específico para Impressão do Currículo Padronizado SETEQ / IMO */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-cv-container, #printable-cv-container * {
+    visibility: visible;
+  }
+
+  #printable-cv-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white;
+    color: #111;
+    box-shadow: none;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* ==========================================
+   Estilos de Mapas e Geomapeamento SETEQ
+   ========================================== */
+#real-alagoas-map {
+  min-height: 480px;
+  width: 100%;
+  border-radius: 1rem;
+  z-index: 10;
+}
+
+/* Fix Leaflet attribution inside rounded containers */
+.leaflet-container {
+  font-family: inherit;
+  border-radius: 1rem;
+}
+
+/* Custom Leaflet Pulsing Marker */
+.alagoas-custom-marker {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.alagoas-marker-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -15px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alagoas-marker-pin::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+.alagoas-marker-pulse {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  left: 50%;
+  top: 50%;
+  margin: -14px 0 0 -14px;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: markerPulse 2s infinite ease-out;
+}
+
+@keyframes markerPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Mapa Temático SVG Interativo */
+.thematic-region-path {
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.thematic-region-path:hover {
+  filter: brightness(1.15) drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+  stroke: #ffffff;
+  stroke-width: 3px;
+}
+
+.thematic-region-path.active {
+  stroke: #1e3a8a;
+  stroke-width: 4px;
+  filter: brightness(1.2);
+}
+
+/* ==========================================
+   DESIGN SYSTEM: DEEP TECH BLUE & DARK MODE
+   ========================================== */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0b1120;
+  color: #f1f5f9;
+}
+
+html.dark .bg-white {
+  background-color: #1e293b !important;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+html.dark .bg-slate-50 {
+  background-color: #0f172a !important;
+  color: #f8fafc;
+}
+
+html.dark .bg-slate-100 {
+  background-color: #1e293b !important;
+  color: #e2e8f0;
+}
+
+html.dark .border-slate-100,
+html.dark .border-slate-200 {
+  border-color: #334155 !important;
+}
+
+html.dark .border-slate-300 {
+  border-color: #475569 !important;
+}
+
+html.dark .text-slate-900,
+html.dark .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-700,
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+html.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #334155 !important;
+}
+
+html.dark input:not([type="checkbox"]):not([type="radio"]),
+html.dark select,
+html.dark textarea {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Efeito Glow Elétrico e Glassmorphism */
+.cyan-glow {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.45);
+}
+
+.tech-border-glow {
+  border-color: #06b6d4 !important;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+html.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(51, 65, 85, 0.8) !important;
+}
+
+/* ==========================================
+   ACESSILIBIDADE: MODO ALTO CONTRASTE (WCAG AAA)
+   ========================================== */
+html.high-contrast {
+  filter: contrast(1.2);
+}
+
+html.high-contrast body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.high-contrast .bg-white,
+html.high-contrast .bg-slate-50,
+html.high-contrast .bg-slate-100,
+html.high-contrast .bg-slate-800,
+html.high-contrast .bg-slate-900,
+html.high-contrast .glass-panel {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffff00 !important;
+}
+
+html.high-contrast a,
+html.high-contrast button {
+  color: #ffff00 !important;
+  font-weight: 700 !important;
+}
+
+html.high-contrast .text-slate-900,
+html.high-contrast .text-slate-800,
+html.high-contrast .text-slate-700,
+html.high-contrast .text-slate-600,
+html.high-contrast .text-slate-500 {
+  color: #ffffff !important;
+}
+
+html.high-contrast input,
+html.high-contrast select,
+html.high-contrast textarea {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border: 2px solid #ffff00 !important;
+}
+
+/* ==========================================
+   SIMULADOR DE SMARTPHONE MOBILE (iOS / ANDROID)
+   ========================================== */
+.mobile-device-wrapper {
+  perspective: 1000px;
+}
+
+.smartphone-frame {
+  width: 390px;
+  height: 800px;
+  max-height: 92vh;
+  border-radius: 46px;
+  border: 10px solid #1e293b;
+  box-shadow: 
+    0 0 0 3px #0f172a,
+    0 25px 60px -15px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(6, 182, 212, 0.2);
+  background: #020617;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Botões físicos simulados na lateral */
+.smartphone-frame::before {
+  content: '';
+  position: absolute;
+  left: -13px;
+  top: 110px;
+  width: 3px;
+  height: 48px;
+  background: #334155;
+  border-radius: 2px 0 0 2px;
+}
+
+.smartphone-frame::after {
+  content: '';
+  position: absolute;
+  right: -13px;
+  top: 130px;
+  width: 3px;
+  height: 65px;
+  background: #334155;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Ilha Dinâmica / Notch */
+.smartphone-island {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 28px;
+  background: #000000;
+  border-radius: 20px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.smartphone-island-camera {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1e293b 30%, #0f172a 70%);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.smartphone-island-sensor {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #111827;
+}
+
+/* Home Indicator inferior */
+.smartphone-home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 134px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  z-index: 50;
+}
+
+/* Banner de Notificação Push Simulada na tela do celular */
+.mobile-push-banner {
+  position: absolute;
+  top: 48px;
+  left: 12px;
+  right: 12px;
+  z-index: 45;
+  transform: translateY(-150%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-push-banner.show {
+  transform: translateY(0);
+}
+
+/* ==========================================
+   ASSISTENTE VIRTUAL COM IA SETEQ (CHATBOT)
+   ========================================== */
+.ai-chat-window {
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(6, 182, 212, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom right;
+}
+
+.ai-chat-window.minimized {
+  transform: scale(0.92) translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ai-chat-trigger {
+  box-shadow: 
+    0 8px 25px rgba(6, 182, 212, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+.ai-chat-trigger:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 
+    0 12px 30px rgba(6, 182, 212, 0.55),
+    0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.ai-typing-indicator span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #06b6d4;
+  display: inline-block;
+  animation: aiTyping 1.4s infinite ease-in-out both;
+}
+
+.ai-typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.ai-typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes aiTyping {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.chat-bubble-ai {
+  border-bottom-left-radius: 4px;
+}
+
+.chat-bubble-user {
+  border-bottom-right-radius: 4px;
+}
+
+/* ==========================================
+   ASSISTENTE DE LIBRAS (Língua Brasileira de Sinais)
+   ========================================== */
+.libras-pill-trigger {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 45;
+  background: linear-gradient(135deg, #1e3a8a, #0d47a1);
+  color: white;
+  border-radius: 16px 0 0 16px;
+  border: 2px solid #06b6d4;
+  border-right: none;
+  box-shadow: -4px 0 20px rgba(6, 182, 212, 0.45);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.libras-pill-trigger:hover {
+  transform: translateY(-50%) translateX(-4px);
+  background: linear-gradient(135deg, #0d47a1, #0284c7);
+  box-shadow: -6px 0 25px rgba(6, 182, 212, 0.65);
+}
+
+.libras-window {
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(6, 182, 212, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom left;
+}
+
+.libras-window.minimized {
+  transform: scale(0.9) translateY(25px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Animações de Sinalização do Avatar em LIBRAS */
+.libras-avatar-stage {
+  background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.libras-hand-left {
+  transform-origin: 30px 50px;
+  animation: librasLeftHand 1.8s infinite ease-in-out alternate;
+}
+
+.libras-hand-right {
+  transform-origin: 90px 50px;
+  animation: librasRightHand 1.8s infinite ease-in-out alternate;
+}
+
+.libras-avatar-head {
+  transform-origin: 60px 30px;
+  animation: librasHeadNod 2.4s infinite ease-in-out alternate;
+}
+
+@keyframes librasLeftHand {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-8px, -12px) rotate(-15deg); }
+  50% { transform: translate(6px, -18px) rotate(20deg); }
+  75% { transform: translate(-4px, -6px) rotate(-10deg); }
+  100% { transform: translate(8px, -14px) rotate(15deg); }
+}
+
+@keyframes librasRightHand {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(8px, -15px) rotate(15deg); }
+  50% { transform: translate(-6px, -20px) rotate(-20deg); }
+  75% { transform: translate(5px, -8px) rotate(10deg); }
+  100% { transform: translate(-8px, -12px) rotate(-15deg); }
+}
+
+@keyframes librasHeadNod {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-2px) rotate(2deg); }
+  70% { transform: translateY(2px) rotate(-2deg); }
+}
+
+.signing-active .libras-hand-left {
+  animation-duration: 0.9s !important;
+}
+
+.signing-active .libras-hand-right {
+  animation-duration: 0.9s !important;
+}
+
+.libras-glosa-box {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  backdrop-filter: blur(12px);
+}
+
+
+
+
