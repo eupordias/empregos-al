@@ -1,7 +1,10 @@
-﻿# 🏛️ EMPREGOS AL – SETEQ (Governo do Estado de Alagoas)
+# 🏛️ EMPREGOS AL – SETEQ (Governo do Estado de Alagoas)
 
 > **Ecossistema Digital Oficial de Intermediação de Mão de Obra, Capacitação, Acessibilidade e Inclusão Produtiva com Inteligência Artificial.**  
 > Desenvolvido para a **Secretaria de Estado do Trabalho, Emprego e Qualificação de Alagoas (SETEQ)** e para a **Rede SINE Alagoas (Sistema Nacional de Emprego)**.
+
+🌐 **Aplicação Publicada no GitHub Pages:** [**https://eupordias.github.io/empregos-al/**](https://eupordias.github.io/empregos-al/)  
+⚡ **Banco de Dados PostgreSQL (Supabase):** Esquema DDL completo e dados semente em [`sql/supabase_schema.sql`](./sql/supabase_schema.sql)
 
 ---
 
@@ -145,7 +148,11 @@ O ecossistema foi desenhado sob medida para quatro grandes grupos de usuários:
 
 A plataforma foi desenvolvida para rodar com **zero complexidade de instalação** no seu ambiente Windows:
 
-### Opção 1: Inicialização em 1 Clique (Recomendado)
+### Opção 0: Acesso Online Imediato via GitHub Pages (Sem Instalar Nada)
+Você pode abrir e testar a plataforma em qualquer computador, tablet ou smartphone:
+👉 [**https://eupordias.github.io/empregos-al/**](https://eupordias.github.io/empregos-al/)
+
+### Opção 1: Inicialização em 1 Clique no Windows (Recomendado Local)
 Dê um duplo clique no arquivo **`start.bat`** na raiz do projeto:
 ```bat
 C:\Users\updia\.gemini\antigravity\scratch\empregos-al\start.bat
@@ -176,6 +183,24 @@ npm run start:dev
 
 ---
 
+## ⚡ Integração com Banco de Dados PostgreSQL no Supabase
+
+O projeto conta com arquitetura **Dual-Mode**: funciona localmente de imediato com **LocalStorage** e, caso conectado, sincroniza em tempo real com o **Supabase PostgreSQL**:
+
+### 1. Criar o Banco no Supabase (2 minutos)
+1. Crie uma conta gratuita em [supabase.com](https://supabase.com) e crie um novo projeto.
+2. Acesse o menu **SQL Editor** no painel do Supabase.
+3. Copie e cole todo o conteúdo do arquivo [`sql/supabase_schema.sql`](./sql/supabase_schema.sql) e clique em **Run**.
+4. Todas as 10 tabelas (`vagas`, `candidatos`, `candidaturas`, `empresas`, `cursos`, `inscricoes_cursos`, `noticias`, `postos_sine`, `auditoria_lgpd`, `usuarios`), políticas de segurança RLS e dados semente de Alagoas serão criados instantaneamente.
+
+### 2. Conectar a Aplicação ao Supabase
+1. No cabeçalho da aplicação (no [GitHub Pages](https://eupordias.github.io/empregos-al/) ou local), clique no botão **`[ ⚡ Supabase SQL ]`** ou acesse o **Menu Anexado -> Banco Supabase (SQL)**.
+2. Preencha o **Project URL** (ex: `https://xyzcompany.supabase.co`) e a **Project API Key (anon / public)**.
+3. Clique em **Testar Conexão** para checar a latência em milissegundos e em **Salvar Credenciais**.
+4. O status mudará imediatamente para **`🟢 Supabase Conectado`** e os dados de vagas, cursos e candidaturas serão sincronizados em tempo real!
+
+---
+
 ## 📁 Estrutura do Repositório
 
 ```
@@ -188,8 +213,11 @@ empregos-al/
 ├── assets/                      # Recursos visuais, logomarcas e mídias (.gitkeep)
 ├── css/
 │   └── styles.css               # Estilos institucionais, regras de impressão A4 e Kanban
+├── sql/
+│   └── supabase_schema.sql      # Esquema DDL PostgreSQL completo e seed data para Supabase
 ├── js/
 │   ├── app.js                   # Controlador mestre de ciclo de vida e roteamento
+│   ├── supabase-client.js       # Cliente e sincronizador em nuvem do Supabase (Dual-Mode)
 │   ├── store.js                 # Gerenciamento de estado reativo e persistência local
 │   ├── mockData.js              # Base de dados estruturada de Alagoas (vagas, cidades, CBO)
 │   ├── mock-data.js             # Coleções de dados auxiliares do ecossistema

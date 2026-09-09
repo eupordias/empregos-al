@@ -684,6 +684,10 @@
         'LGPD Art. 7º, V'
       );
 
+      if (window.SupabaseClient) {
+        window.SupabaseClient.recordApplication(newApp);
+      }
+
       this.save();
       return { success: true, application: newApp };
     }
@@ -861,6 +865,10 @@
       this.state.auditLogs.unshift(logEntry);
       if (this.state.auditLogs.length > 200) {
         this.state.auditLogs = this.state.auditLogs.slice(0, 200);
+      }
+
+      if (window.SupabaseClient) {
+        window.SupabaseClient.recordAuditLog(logEntry);
       }
     }
 
@@ -1135,6 +1143,9 @@
                 <span>📱 App Mobile</span>
               </button>
 
+              <!-- Badge do Banco de Dados Supabase (PostgreSQL) -->
+              <div id="supabase-status-badge"></div>
+
               <!-- MENU ANEXADO: Acessibilidade, Tema e Opções Governamentais -->
               <div class="relative inline-block text-left" id="attached-menu-wrapper">
                 <button id="btn-toggle-attached-menu" type="button" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 hover:text-white font-semibold flex items-center gap-1.5 transition-all text-[11px] shadow-sm cursor-pointer" aria-expanded="false" aria-haspopup="true" title="Abrir menu de acessibilidade, preferências e dados">
@@ -1189,6 +1200,15 @@
                   <button id="btn-libras-toggle" class="w-full p-2 rounded-xl bg-gradient-to-r from-blue-950 to-slate-800 hover:from-blue-900 hover:to-slate-700 border border-cyan-500/40 text-cyan-300 font-semibold flex items-center justify-center gap-2 transition-colors text-xs mb-3 cursor-pointer shadow-sm">
                     <span class="text-base">🤟</span>
                     <span>Ativar Intérprete de LIBRAS</span>
+                  </button>
+
+                  <!-- Banco de Dados Supabase (PostgreSQL) -->
+                  <button id="btn-menu-open-supabase" class="w-full p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-cyan-300 font-semibold flex items-center justify-between transition-colors text-xs mb-3 cursor-pointer">
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-cyan-400">⚡</span>
+                      <span>Banco Supabase (SQL)</span>
+                    </div>
+                    <span class="text-[10px] px-2 py-0.5 rounded bg-slate-900 text-cyan-400 border border-cyan-800/50">Conectar</span>
                   </button>
 
                   <!-- Governança e Dados -->
@@ -1392,6 +1412,12 @@
       document.getElementById('btn-open-institutional')?.addEventListener('click', () => {
         onTabChange('welcome');
       });
+
+      document.getElementById('btn-menu-open-supabase')?.addEventListener('click', () => {
+        window.SupabaseClient?.openConfigModal();
+      });
+
+      window.SupabaseClient?.updateBadge();
 
       document.getElementById('btn-reset-data')?.addEventListener('click', () => {
         if (confirm('Deseja reiniciar a base com os dados iniciais do Governo de Alagoas?')) {
