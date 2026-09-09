@@ -68,7 +68,7 @@ O ecossistema foi desenhado sob medida para quatro grandes grupos de usuários:
 
 ## 💡 Comparativo de Valor: Nossa Entrega vs. Proposta Externa
 
-| Funcionalidade / Aspecto | Proposta Externa (W.E TECH) | Nossa Solução Entregue |
+| Funcionalidade / Aspecto | Proposta Externa  | Nossa Solução Entregue |
 | :--- | :--- | :--- |
 | **Custo de Licenciamento** | **R$ 65.000,00** | **R$ 0,00 (Totalmente Livre e Autônomo)** |
 | **Prazo de Implantação** | **120 dias de espera** | **Imediato (100% Funcional Hoje)** |
