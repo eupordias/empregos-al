@@ -144,60 +144,10 @@ O ecossistema foi desenhado sob medida para quatro grandes grupos de usuários:
 
 ---
 
-## 🚀 Como Executar a Aplicação
+## 🚀 Como Acessar a Aplicação
 
-A plataforma foi desenvolvida para rodar com **zero complexidade de instalação** no seu ambiente Windows:
-
-### Opção 0: Acesso Online Imediato via GitHub Pages (Sem Instalar Nada)
-Você pode abrir e testar a plataforma em qualquer computador, tablet ou smartphone:
+Acesse e utilize a plataforma diretamente em qualquer computador, tablet ou smartphone (sem necessidade de instalação):  
 👉 [**https://eupordias.github.io/empregos-al/**](https://eupordias.github.io/empregos-al/)
-
-### Opção 1: Inicialização em 1 Clique no Windows (Recomendado Local)
-Dê um duplo clique no arquivo **`start.bat`** na raiz do projeto:
-```bat
-C:\Users\updia\.gemini\antigravity\scratch\empregos-al\start.bat
-```
-O script iniciará um servidor HTTP de alta performance em PowerShell e abrirá seu navegador automaticamente em:
-```
-http://localhost:8080/
-```
-
-### Opção 2: Executar Diretamente no Navegador
-Você pode abrir diretamente o arquivo **`index.html`** em qualquer navegador moderno (Google Chrome, Microsoft Edge, Firefox, Opera ou Safari).
-
-### Opção 3: Código do Aplicativo Mobile (Flutter)
-O projeto conta com o scaffolding da arquitetura mobile limpa em `mobile/lib/main.dart`:
-```bash
-cd mobile
-flutter pub get
-flutter run
-```
-
-### Opção 4: Código do Back-end API RESTful (NestJS)
-O projeto inclui a estrutura de microsserviços pronta em `backend/src/main.ts`:
-```bash
-cd backend
-npm install
-npm run start:dev
-```
-
----
-
-## ⚡ Integração com Banco de Dados PostgreSQL no Supabase
-
-O projeto conta com arquitetura **Dual-Mode**: funciona localmente de imediato com **LocalStorage** e, caso conectado, sincroniza em tempo real com o **Supabase PostgreSQL**:
-
-### 1. Criar o Banco no Supabase (2 minutos)
-1. Crie uma conta gratuita em [supabase.com](https://supabase.com) e crie um novo projeto.
-2. Acesse o menu **SQL Editor** no painel do Supabase.
-3. Copie e cole todo o conteúdo do arquivo [`sql/supabase_schema.sql`](./sql/supabase_schema.sql) e clique em **Run**.
-4. Todas as 10 tabelas (`vagas`, `candidatos`, `candidaturas`, `empresas`, `cursos`, `inscricoes_cursos`, `noticias`, `postos_sine`, `auditoria_lgpd`, `usuarios`), políticas de segurança RLS e dados semente de Alagoas serão criados instantaneamente.
-
-### 2. Conectar a Aplicação ao Supabase
-1. No cabeçalho da aplicação (no [GitHub Pages](https://eupordias.github.io/empregos-al/) ou local), clique no botão **`[ ⚡ Supabase SQL ]`** ou acesse o **Menu Anexado -> Banco Supabase (SQL)**.
-2. Preencha o **Project URL** (ex: `https://xyzcompany.supabase.co`) e a **Project API Key (anon / public)**.
-3. Clique em **Testar Conexão** para checar a latência em milissegundos e em **Salvar Credenciais**.
-4. O status mudará imediatamente para **`🟢 Supabase Conectado`** e os dados de vagas, cursos e candidaturas serão sincronizados em tempo real!
 
 ---
 
