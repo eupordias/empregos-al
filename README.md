@@ -3,8 +3,7 @@
 > **Ecossistema Digital Oficial de Intermediação de Mão de Obra, Capacitação, Acessibilidade e Inclusão Produtiva com Inteligência Artificial.**  
 > Desenvolvido para a **Secretaria de Estado do Trabalho, Emprego e Qualificação de Alagoas (SETEQ)** e para a **Rede SINE Alagoas (Sistema Nacional de Emprego)**.
 
-🌐 **Aplicação Publicada no GitHub Pages:** [**https://eupordias.github.io/empregos-al/**](https://eupordias.github.io/empregos-al/)  
-⚡ **Banco de Dados PostgreSQL (Supabase):** Esquema DDL completo e dados semente em [`sql/supabase_schema.sql`](./sql/supabase_schema.sql)
+🌐 **Aplicação Publicada no GitHub Pages:** [**https://eupordias.github.io/empregos-al/**](https://eupordias.github.io/empregos-al/)
 
 ---
 
